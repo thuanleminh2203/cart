@@ -2,26 +2,29 @@ const nameInitialState = [
     {
         id: 1,
         name: 'Iphone 7 Plus',
-        image : '',
+        image : 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/H0/HH0H2/HH0H2?wid=445&hei=445&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=K7ik72',
         description: 'Sản phẩm do Apple phát hành',
         price : 500,
-        inventory : 10
+        inventory : 10,
+        rating : 4
     },
     {
         id: 2,
         name: 'Samsung galaxy 7',
-        image : '',
+        image : 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/H0/HH0H2/HH0H2?wid=445&hei=445&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=K7ik72',
         description: 'Sản phẩm do Samsung phát hành',
         price : 600,
-        inventory : 16
+        inventory : 16,
+        rating : 5
     },
     {
         id: 1,
         name: 'Oppo 2 Plus',
-        image : '',
+        image : 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/H0/HH0H2/HH0H2?wid=445&hei=445&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=K7ik72',
         description: 'Sản phẩm do Oppo phát hành',
         price : 350,
-        inventory : 8
+        inventory : 8,
+        rating : 3
     }
 ];
 const product = (state = nameInitialState, action) => {
