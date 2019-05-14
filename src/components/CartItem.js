@@ -35,7 +35,7 @@ class CartItem extends React.Component {
             </label>
           </div>
         </td>
-        <td>15$</td>
+        <td>{item.product.price*item.quantity}$</td>
         <td>
           <button
             type="button"

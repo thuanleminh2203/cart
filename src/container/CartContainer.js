@@ -3,13 +3,17 @@ import { connect } from "react-redux";
 import Cart from './../components/Cart';
 import * as Message from './../constant/Message';
 import CartItem from "../components/CartItem";
+import CartResult from "../components/CartResult";
 
 class CartContainer extends React.Component {
   render() {
     var { cart } = this.props;
     
     return (
-      <Cart>{this.showCart(cart)}</Cart>
+      <Cart>
+          {this.showCart(cart)}
+          {this.showTotal(cart)}
+      </Cart>
     );
   }
   showCart=(cart) => {
@@ -22,6 +26,13 @@ class CartContainer extends React.Component {
       })
     }
     return result;
+  }
+  showTotal = (cart) => {
+      if(cart.length > 0 ){
+        return (
+          <CartResult cart = {cart}/>
+        )
+      }
   }
 }
 

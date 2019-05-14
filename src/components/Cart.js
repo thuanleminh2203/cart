@@ -1,6 +1,4 @@
 import React from "react";
-import CartItem from "./CartItem";
-import CartResult from "./CartResult";
 
 class Cart extends React.Component {
     render(){
@@ -21,10 +19,7 @@ class Cart extends React.Component {
                   </thead>
                   <tbody>
                       {this.props.children}
-                     {/* { {item}
-                    <CartItem />} */}
                   </tbody>
-                  <CartResult />
                 </table>
               </div>
             </section>
