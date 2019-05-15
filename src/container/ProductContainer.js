@@ -2,7 +2,7 @@ import React from "react";
 import Product from "./../components/Product";
 import { connect } from "react-redux";
 import Products from "../components/Products";
-import {actAddToCart} from './../actions/index';
+import {actAddToCart, actChangeMess} from './../actions/index';
 
 class ProductContainer extends React.Component {
   render() {
@@ -14,10 +14,10 @@ class ProductContainer extends React.Component {
 
   showProduct(product) {
     var result = null;
-    var {onAddToCart} = this.props;
+    var {onAddToCart, onChangeMess} = this.props;
     if (product.length > 0) {
       result = product.map((product, index) => {
-        return <Product key={index} product={product} onAddToCart={onAddToCart}/>;
+        return <Product key={index} product={product} onAddToCart={onAddToCart} onChangeMess = {onChangeMess}/>;
       });
     }
     return result;
@@ -34,7 +34,11 @@ const  mapDispatchToProps = (dispatch,props ) => {
   return {
     onAddToCart: (product) => {
       dispatch(actAddToCart(product,1));
+    },
+    onChangeMess : (mess) => {
+      dispatch(actChangeMess(mess));
     }
+
   }
 }
 

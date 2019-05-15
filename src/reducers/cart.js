@@ -9,7 +9,7 @@ const cart = (state = cartInitialState, action) => {
         var {product,quantity} = action;
         var index = findById(state, product.id);
         if(index !== -1){ // neu ton tai
-              index = index - 1;
+              
               state[index].quantity += 1 ;
              
         }else{
@@ -27,6 +27,23 @@ const cart = (state = cartInitialState, action) => {
         localStorage.setItem('CART', JSON.stringify(state));
 
         return [...state];
+    case types.DELETE_PRODUCT:
+           
+           index = findById(state, action.product.id);
+          if(index !== -1){
+            state.splice(index, 1);
+           
+          }
+          localStorage.setItem('CART', JSON.stringify(state))
+          return [...state];
+    case types.UPDATE_PRODUCT_INT_CART :
+          index = findById(state, action.product.id);
+      if(index !== -1){
+        state[index].quantity = quantity;
+      }
+      localStorage.setItem('CART', JSON.stringify(state));
+
+        return [...state];
     default:
       return [...state];
   }
@@ -37,7 +54,7 @@ var findById = (cart, id) =>{
       if(cart.length > 0){
         for(let i = 0; i < cart.length; i++){
           if(cart[i].product.id === id ){
-            return id;
+            return i;
           }
         }
       }

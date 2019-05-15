@@ -1,4 +1,5 @@
 import React from "react";
+import * as Mess from './../constant/Message';
 
 class Product extends React.Component {
   render() {
@@ -48,6 +49,7 @@ class Product extends React.Component {
 
   onAddToCart = (product) => {
     this.props.onAddToCart(product);
+    this.props.onChangeMess(Mess.MESS_ADD_TO_CART_SUCCSESS);
 
   }
   showRating(rating) {

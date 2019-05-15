@@ -4,6 +4,7 @@ import Cart from './../components/Cart';
 import * as Message from './../constant/Message';
 import CartItem from "../components/CartItem";
 import CartResult from "../components/CartResult";
+import {actDeleteProduct,actMessDeleteProduct,actUpdateQuantityProduct} from './../actions/index'
 
 class CartContainer extends React.Component {
   render() {
@@ -17,11 +18,13 @@ class CartContainer extends React.Component {
     );
   }
   showCart=(cart) => {
-    var result = Message.MESS_CART_EMPTY;
+    var result =<tr><td> {Message.MESS_CART_EMPTY}</td></tr>;
     if(cart.length > 0){
       result = cart.map((item,index)=>{
         return (
-          <CartItem key ={index} item={item} index={index} />
+          <CartItem key ={index} item={item} index={index} 
+          onUpdateProduct = {this.props.onUpdateProduct}
+          onDeleteProduct = {this.props.onDeleteProduct} onChangeMessDelete = {this.props.onChangeMessDelete}/>
         )
       })
     }
@@ -42,4 +45,19 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(CartContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onDeleteProduct: (product) => {
+      dispatch(actDeleteProduct(product));
+    },
+    onChangeMessDelete : (mess) => {
+      dispatch(actMessDeleteProduct(mess));
+    },
+    onUpdateProduct : (product,quantity) =>{
+      dispatch(actUpdateQuantityProduct(product,quantity))
+    }
+    
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CartContainer);
